@@ -1,0 +1,48 @@
+---
+title: "Práctica 2"
+author: "Carla Martínez, Patricia Mateu i Margalida Verd"
+format: html
+editor: visual
+---
+
+Antes de empezar con los ejercicios propuestos, vamos a cargar la base de datos para el estudio:
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+str(mpg)
+
+```
+
+## Gráfico 1
+
+En esta sección creamos un gráfico que permita visualizar el número de vehículos de cada fabricante del conjunto de datos. Observemos que la variable `manufacturer` es de tipo *character*, por lo tanto, dibujaremos un gráfico de barras.
+
+```{r, echo= FALSE, warning=FALSE}
+mpg %>% 
+  ggplot(aes(x = manufacturer)) +
+  geom_bar(fill="lightskyblue2") + 
+  labs(x="Fabricante", y="Número de vehículos") +
+  geom_text(aes(label = ..count..), stat="count", vjust = 2, colour = "steelblue4") +
+  theme_bw() +
+  theme(axis.text = element_text(size=7),
+        axis.title = element_text(size=15,face = "bold")) 
+```
+Como vemos, el fabricante que más vehículos ha producido es *Chevrolet*, seguido muy de cerca por *Toyota*. En cambio, el fabricante con menos vehículos fabricados es *Lincoln*, seguido de *Land Rover* y *Mercury*.
+
+## Gráfico 2
+
+Vamos a ilustrar ahora el rendimiento medio en ciudad para cada clase.
+
+## Gráfico 3
+
+Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciudad para cada clase y tipo de tracción simultáneamente. Para ello,
+
+## Gráfico 4
+
+Vamos a mostrar la relación entre el tamaño del motor y el rendimiento en carretera, para cada clase de vehículo. 
+
+*¿Qué podéis observar?*
+
+## Gráfico 5
+
+Finalmente, vamos a comparar la distribución del rendimiento en ciudad para distintos tipos de tracción.
