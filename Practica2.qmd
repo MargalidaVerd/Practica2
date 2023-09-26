@@ -33,6 +33,35 @@ Como vemos, el fabricante que más vehículos ha producido es *Chevrolet*, segui
 
 Vamos a ilustrar ahora el rendimiento medio en ciudad para cada clase.
 
+```{r, echo = FALSE, warning=FALSE}
+
+medias <- mpg %>% 
+  group_by(class) %>% 
+  summarise(media = round(mean(cty), digits = 5))
+
+medias %>% 
+  ggplot(mapping= (aes(x=class, y = media, color = class))) +
+  geom_point(na.rm = TRUE) + 
+  labs(x="Clase", y="Rendimiento medio en ciudad") +
+  geom_text(aes(label = media), hjust = 0,  vjust = -0.5 , colour = "black") +
+  guides(color = guide_legend(title = "Clase")) +
+  theme_minimal() +
+  theme(axis.text = element_text(size=8),
+        axis.title = element_text(size=12,face = "bold"),
+        legend.title = element_text(size=15))  
+  
+
+```
+#### OTRA FORMA DE VER LAS MEDIAS!!!!!!!
+```{r}
+medias %>% 
+  ggplot(aes(x=class,y = media)) +
+  geom_bar(stat= "identity") +  
+  geom_text(aes(label = media), vjust = 2, colour = "white") +
+  theme_bw() 
+```
+Como vemos, los vehículos que tienen un rendimiento medio en ciudad más elevado son los de la clase *subcompact*. Por el contrario, la clase *pickup* es la que tiene un rendimiento medio más bajo.
+
 ## Gráfico 3
 
 Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciudad para cada clase y tipo de tracción simultáneamente. Para ello,
@@ -41,8 +70,28 @@ Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciuda
 
 Vamos a mostrar la relación entre el tamaño del motor y el rendimiento en carretera, para cada clase de vehículo. 
 
-*¿Qué podéis observar?*
+```{r}
+ggplot(mpg) +
+  geom_point(mapping = aes(x = displ,
+                           y = hwy,
+                           color = class), size=2)+ 
+  theme_minimal() +
+  labs(x= "Tamaño del motor", y="Rendimiento en carretera") +
+  theme(axis.text = element_text(size=8),
+        axis.title = element_text(size=12, face = "bold"),
+        legend.title = element_text(size=15)) + 
+  guides(color = guide_legend(title = "Clase"))
+```
+
+!!!!!! TENEMOS QUE EXPLICAR QUÉ OBSERVAMOS !!!!!!
 
 ## Gráfico 5
 
 Finalmente, vamos a comparar la distribución del rendimiento en ciudad para distintos tipos de tracción.
+
+
+
+
+
+
+
