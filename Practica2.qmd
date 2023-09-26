@@ -52,6 +52,7 @@ medias %>%
   
 
 ```
+
 #### OTRA FORMA DE VER LAS MEDIAS!!!!!!!
 
 ```{r}
@@ -61,6 +62,7 @@ medias %>%
   geom_text(aes(label = media), vjust = 2, colour = "white") +
   theme_bw() 
 ```
+
 Como vemos, los vehículos que tienen un rendimiento medio en ciudad más elevado son los de la clase *subcompact*. Por el contrario, la clase *pickup* es la que tiene un rendimiento medio más bajo.
 
 ## Gráfico 3
@@ -78,14 +80,14 @@ mpg %>% ggplot() +
         axis.title = element_text(size=20, face = "bold"),
         legend.title = element_text(size=20)) 
 ```
-En el gráfico podemos observar que el tipo *2seater* sólo tiene vehículos con tracción *r* y que su rendimiento medio es el más bajo en comparación a los demás de la misma tracción. 
+
+En el gráfico podemos observar que el tipo *2seater* sólo tiene vehículos con tracción *r* y que su rendimiento medio es el más bajo en comparación a los demás de la misma tracción.
 
 Los tipos de vehículos *pickup* y *minivan* sólo tienen vehículos con tracción *4* y *f*, respectivamente. Notemos que los de tipo *pickup* tienen una media de rendimiento bastante alta en relación a las demás pero por debajo de los vehículos de tipo *suv* que son los de mayor rendimiento medio con tracción *4*.
 
-Por el contrario, los de tipo *minivan* tienen el rendimiento medio más bajo en relación a las demás medias. 
+Por el contrario, los de tipo *minivan* tienen el rendimiento medio más bajo en relación a las demás medias.
 
-Además, los *suv* tienen el rendimiento medio en ciudd más alto para los dos tipos de tracción. Los de tipo *midsize* y *compact* tienen tracción *f* y *4*. En cuanto al rendimiento medio, *midsize* contiene la media más alta en comparación a los demás de tracción *f*. 
-
+Además, los *suv* tienen el rendimiento medio en ciudd más alto para los dos tipos de tracción. Los de tipo *midsize* y *compact* tienen tracción *f* y *4*. En cuanto al rendimiento medio, *midsize* contiene la media más alta en comparación a los demás de tracción *f*.
 
 Por último, los vehículos de tipo *subcompact* contienen los tres tipos de tracción pero ninguno destaca en el rendimiento medio en ciudad (todos por encima de la media más baja y por debajo de la media más alta).
 
@@ -111,10 +113,25 @@ ggplot(mpg) +
 ## Gráfico 5
 
 Finalmente, vamos a comparar la distribución del rendimiento en ciudad para distintos tipos de tracción.
+```{r}
+library(ggplot2)
+theme_set(theme_classic())
+
+g <- ggplot(mpg, aes(cty))
+g + geom_bar(aes(fill=drv), width = 0.5) +
+  theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
+  #guides(color = guide_legend(title = "Tipo de tracción")) + #no se cambia :(
+  labs(x= "Rendimiento en ciudad", y="Distribución") 
+  
+
+```
+```{r}
+g <- ggplot(mpg, aes(cty)) + scale_fill_brewer(palette = "Spectral")
+
+g + geom_histogram(aes(fill=drv), 
+                   binwidth = .1, 
+                   col="black", 
+                   linewidth=.01) 
 
 
-
-
-
-
-
+```
