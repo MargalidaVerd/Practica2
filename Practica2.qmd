@@ -33,7 +33,6 @@ Como vemos, el fabricante que más vehículos ha producido es *Chevrolet*, segui
 
 Vamos a ilustrar ahora el rendimiento medio en ciudad para cada clase.
 
-<<<<<<< HEAD
 ```{r, echo = FALSE, warning=FALSE}
 
 medias <- mpg %>% 
@@ -43,7 +42,7 @@ medias <- mpg %>%
 medias %>% 
   ggplot(mapping= (aes(x=class, y = media, color = class))) +
   geom_point(na.rm = TRUE) + 
-  labs(x="Clase", y="Rendimiento medio en ciudad") +
+  labs(x="Tipo de vehículo", y="Rendimiento medio en ciudad") +
   geom_text(aes(label = media), hjust = 0,  vjust = -0.5 , colour = "black") +
   guides(color = guide_legend(title = "Clase")) +
   theme_minimal() +
@@ -54,6 +53,7 @@ medias %>%
 
 ```
 #### OTRA FORMA DE VER LAS MEDIAS!!!!!!!
+
 ```{r}
 medias %>% 
   ggplot(aes(x=class,y = media)) +
@@ -62,38 +62,38 @@ medias %>%
   theme_bw() 
 ```
 Como vemos, los vehículos que tienen un rendimiento medio en ciudad más elevado son los de la clase *subcompact*. Por el contrario, la clase *pickup* es la que tiene un rendimiento medio más bajo.
-=======
-Notemos que hay 7 tipos de vehículos diferentes. 
-
-```{r}
-table(mpg$class)
-```
-
-
-```{r}
-library(colorspace)
-mpg %>%
-  ggplot(aes(x = class, y = cty)) +
-  geom_boxplot(aes(color = class), width = 0.3, 
-               show.legend = FALSE) + 
-  geom_jitter(aes(color = class), alpha = 0.5, 
-              show.legend = FALSE, 
-              position = position_jitter(width = 0.2, seed = 0)) +
-  scale_color_manual(values = c("orange","purple","cyan4","red", "blue", "yellow", "pink")) +
-  labs(x = "Clase", y = "Rendimiento medio en ciudad")
-```
-
->>>>>>> 797732839c1967e2e4f45877f9afed15729d369b
 
 ## Gráfico 3
 
-Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciudad para cada clase y tipo de tracción simultáneamente. Para ello,
+Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciudad para cada clase y tipo de tracción simultáneamente.
+
+```{r, echo=FALSE}
+mpg %>% ggplot() + 
+  geom_bar(aes(class, fill= drv),
+           position="dodge") + coord_flip() +
+  guides(fill = guide_legend(title = "Tipo de tracción")) +
+  labs(x="Tipo de vehículo", y="Rendimiento medio en ciudad") +
+  theme_bw() +
+  theme(axis.text = element_text(size=20),
+        axis.title = element_text(size=20, face = "bold"),
+        legend.title = element_text(size=20)) 
+```
+En el gráfico podemos observar que el tipo *2seater* sólo tiene vehículos con tracción *r* y que su rendimiento medio es el más bajo en comparación a los demás de la misma tracción. 
+
+Los tipos de vehículos *pickup* y *minivan* sólo tienen vehículos con tracción *4* y *f*, respectivamente. Notemos que los de tipo *pickup* tienen una media de rendimiento bastante alta en relación a las demás pero por debajo de los vehículos de tipo *suv* que son los de mayor rendimiento medio con tracción *4*.
+
+Por el contrario, los de tipo *minivan* tienen el rendimiento medio más bajo en relación a las demás medias. 
+
+Además, los *suv* tienen el rendimiento medio en ciudd más alto para los dos tipos de tracción. Los de tipo *midsize* y *compact* tienen tracción *f* y *4*. En cuanto al rendimiento medio, *midsize* contiene la media más alta en comparación a los demás de tracción *f*. 
+
+
+Por último, los vehículos de tipo *subcompact* contienen los tres tipos de tracción pero ninguno destaca en el rendimiento medio en ciudad (todos por encima de la media más baja y por debajo de la media más alta).
 
 ## Gráfico 4
 
 Vamos a mostrar la relación entre el tamaño del motor y el rendimiento en carretera, para cada clase de vehículo.
 
-```{r}
+```{r, echo=FALSE}
 ggplot(mpg) +
   geom_point(mapping = aes(x = displ,
                            y = hwy,
