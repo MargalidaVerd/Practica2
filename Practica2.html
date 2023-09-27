@@ -101,6 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p>Dejamos aquí el link al repositorio: <a href="https://github.com/MargalidaVerd/Practica2.git">Repositorio GitHub</a></p>
 <p>Antes de empezar con los ejercicios propuestos, vamos a cargar la base de datos para el estudio:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -153,24 +154,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gráfico-3" class="level2">
 <h2 class="anchored" data-anchor-id="gráfico-3">Gráfico 3</h2>
-<p>Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciudad para cada clase y tipo de tracción simultáneamente. Para ello,</p>
+<p>Nos piden ahora construir un gráfico para mostrar el rendimiento medio en ciudad para cada clase y tipo de tracción simultáneamente.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Practica2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En el gráfico podemos observar que el tipo <em>2seater</em> sólo tiene vehículos con tracción <em>r</em> y que su rendimiento medio es el más bajo en comparación a los demás de la misma tracción.</p>
+<p>Los tipos de vehículos <em>pickup</em> y <em>minivan</em> sólo tienen vehículos con tracción <em>4</em> y <em>f</em>, respectivamente. Notemos que los de tipo <em>pickup</em> tienen una media de rendimiento bastante alta en relación a las demás pero por debajo de los vehículos de tipo <em>suv</em> que son los de mayor rendimiento medio con tracción <em>4</em>.</p>
+<p>Por el contrario, los de tipo <em>minivan</em> tienen el rendimiento medio más bajo en relación a las demás medias.</p>
+<p>Además, los <em>suv</em> tienen el rendimiento medio en ciudd más alto para los dos tipos de tracción. Los de tipo <em>midsize</em> y <em>compact</em> tienen tracción <em>f</em> y <em>4</em>. En cuanto al rendimiento medio, <em>midsize</em> contiene la media más alta en comparación a los demás de tracción <em>f</em>.</p>
+<p>Por último, los vehículos de tipo <em>subcompact</em> contienen los tres tipos de tracción pero ninguno destaca en el rendimiento medio en ciudad (todos por encima de la media más baja y por debajo de la media más alta).</p>
 </section>
 <section id="gráfico-4" class="level2">
 <h2 class="anchored" data-anchor-id="gráfico-4">Gráfico 4</h2>
 <p>Vamos a mostrar la relación entre el tamaño del motor y el rendimiento en carretera, para cada clase de vehículo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">y =</span> hwy,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">color =</span> class), <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">"Tamaño del motor"</span>, <span class="at">y=</span><span class="st">"Rendimiento en carretera"</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">8</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">15</span>)) <span class="sc">+</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">"Clase"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Practica2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="Practica2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>!!!!!! TENEMOS QUE EXPLICAR QUÉ OBSERVAMOS !!!!!!</p>
@@ -178,6 +179,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="gráfico-5" class="level2">
 <h2 class="anchored" data-anchor-id="gráfico-5">Gráfico 5</h2>
 <p>Finalmente, vamos a comparar la distribución del rendimiento en ciudad para distintos tipos de tracción.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="Practica2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(cty))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill=</span>drv), <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(.<span class="sc">~</span>drv)<span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span> <span class="dv">8</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">"Tipo de tracción"</span>)) <span class="sc">+</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">"Rendimiento en ciudad"</span>, <span class="at">y=</span><span class="st">"Distribución"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Practica2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 </section>
 
 </main>
