@@ -5,6 +5,8 @@ format: html
 editor: visual
 ---
 
+Dejamos aquí el link al repositorio: [Repositorio GitHub](https://github.com/MargalidaVerd/Practica2.git)
+
 Antes de empezar con los ejercicios propuestos, vamos a cargar la base de datos para el estudio:
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
@@ -33,7 +35,6 @@ Como vemos, el fabricante que más vehículos ha producido es *Chevrolet*, segui
 
 Vamos a ilustrar ahora el rendimiento medio en ciudad para cada clase.
 
-<<<<<<< HEAD
 ```{r, echo = FALSE, warning=FALSE}
 
 medias <- mpg %>% 
@@ -53,7 +54,9 @@ medias %>%
   
 
 ```
+
 #### OTRA FORMA DE VER LAS MEDIAS!!!!!!!
+
 ```{r}
 medias %>% 
   ggplot(aes(x=class,y = media)) +
@@ -61,29 +64,8 @@ medias %>%
   geom_text(aes(label = media), vjust = 2, colour = "white") +
   theme_bw() 
 ```
+
 Como vemos, los vehículos que tienen un rendimiento medio en ciudad más elevado son los de la clase *subcompact*. Por el contrario, la clase *pickup* es la que tiene un rendimiento medio más bajo.
-=======
-Notemos que hay 7 tipos de vehículos diferentes. 
-
-```{r}
-table(mpg$class)
-```
-
-
-```{r}
-library(colorspace)
-mpg %>%
-  ggplot(aes(x = class, y = cty)) +
-  geom_boxplot(aes(color = class), width = 0.3, 
-               show.legend = FALSE) + 
-  geom_jitter(aes(color = class), alpha = 0.5, 
-              show.legend = FALSE, 
-              position = position_jitter(width = 0.2, seed = 0)) +
-  scale_color_manual(values = c("orange","purple","cyan4","red", "blue", "yellow", "pink")) +
-  labs(x = "Clase", y = "Rendimiento medio en ciudad")
-```
-
->>>>>>> 797732839c1967e2e4f45877f9afed15729d369b
 
 ## Gráfico 3
 
@@ -111,10 +93,3 @@ ggplot(mpg) +
 ## Gráfico 5
 
 Finalmente, vamos a comparar la distribución del rendimiento en ciudad para distintos tipos de tracción.
-
-
-
-
-
-
-
