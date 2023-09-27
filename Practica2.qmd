@@ -120,7 +120,7 @@ theme_set(theme_classic())
 g <- ggplot(mpg, aes(cty))
 g + geom_bar(aes(fill=drv), width = 0.5) +
   theme(axis.text.x = element_text(angle=65, vjust=0.6)) +
-  #guides(color = guide_legend(title = "Tipo de tracción")) + #no se cambia :(
+  guides(fill = guide_legend(title = "Tipo de tracción")) + #no se cambia :(
   labs(x= "Rendimiento en ciudad", y="Distribución") 
   
 
